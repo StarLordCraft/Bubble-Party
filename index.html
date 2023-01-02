@@ -8,23 +8,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="controles">
+    <header>
+        <h1>Bubble Effect</h1>
 
-        <div class="controle">
-            <h2>Número de objetos</h2>
-            <h3 id="numObjects">0</h3>
-        </div>
+        <button class="btnMenu"
+            aria-label="Abrir Controles"
+            aria-haspopup="true"
+            aria-controls="menu"
+            aria-expanded="false"
+            >Controles
+            <span class="hamburger"></span>
+        </button>
+        
+        <section class="controles">
+            <div class="controle">
+                <h2>Número de objetos</h2>
+                <h3 id="numObjects">0</h3>
+            </div>
 
-        <div class="controle">
-            <label for="numBubblesAdd">Quantidade objetos</label>
-            <input type="number" name="numBubblesAdd" id="numBubblesAdd"/>
-            <button id="btnAdicionar">Adicionar</button>
-        </div>
+            <div class="controle">
+                <label for="numBubblesAdd">Quantidade objetos</label>
+                <input type="number" name="numBubblesAdd" id="numBubblesAdd"/>
+                <button id="btnAdicionar">Adicionar</button>
+            </div>
 
-        <div class="controle">
-            <button id="btnRemoveAll">Remover Todos</button>
-        </div>
-
+            <div class="controle">
+                <button id="btnRemoveAll">Remover Todos</button>
+            </div>
+        </section>
+        
     </header>
 
     <main id="palco" class="palco"></main>

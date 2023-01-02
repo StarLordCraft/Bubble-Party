@@ -1,56 +1,150 @@
 *{
-    padding: 0;
     margin: 0;
-    
+    padding: 0;
+
     box-sizing: border-box;
+}
+
+:root{
+    --menu: #3946d4;
+    --background: #e2e3e9;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background-color: var(--background);
+    font-size: 1rem;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 7rem;
+
+    background-color: var(--menu);
+}
+
+h1{
+    font-weight: 900;
+    color: #fff;
+
+    margin-left: 3rem;
+
+    font-size: 3rem;
+}
+
+.btnMenu{
+    background: none;
+    color:#fff;
+    
+    border: none;
+
+    font: inherit;
+    font-size: 2rem;
+    
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    padding-block: 1.6rem;
+    margin-right: 2rem;
+    
+    cursor: pointer;
+}
+
+.hamburger{
+    border-top: 0.2rem solid;
+    
+    width: 2rem;
+    
+    transition: 0.5s;
+}
+
+.hamburger::before,
+.hamburger::after{
+    content: "";
+
+    display: block;
+
+    width: 2rem;
+    height: 0.2rem;
+
+    margin-top: 0.4rem;
+
+    background: currentColor;
+
+    transition: 0.5s;
+
+    position: relative;
 }
 
 .controles{
     display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     width: 100%;
-    
-    background-color: #eee;
+    height: 0;
 
-    border: 2px solid #000;
-    border-radius: 5px;
+    position: absolute;
+    top: 7rem;
+    left: 0;
+    z-index: 1;
+
+    background-color: var(--menu);
+
+    transition: 0.5s;
+
+    visibility: hidden;
+    overflow-y: hidden;
 }
 
 .controle{
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 
-    width: 100%;
-    padding: 5px;
-    margin: 5px;
+    min-width: 50%;
+    margin: 3rem;
 
-    background-color: #fff;
+    color: #fff;
+    background-color: blueviolet;
 
-    border: 2px solid #888;
-    border-radius: 5px;
+    text-align: center;
 }
 
-button{
-    cursor: pointer;
-
-    background-color: #888;
-    color: #fff;
-
-    padding: 5px;
-
-    border-radius: 5px;
+.controle label{
+    font-size: 2rem;
 }
 
 input[type = number], h3{
     border: 1px solid black;
-
-    width: 150px;
+    border-radius: 5px;
+    
     padding: 5px;
+    margin-bottom: 5px;
 
+    width: 15rem;
+}
+
+.controle button{
+    cursor: pointer;
+
+    background-color: #444;
+    color: #fff;
+
+    padding: 5px;
     border-radius: 5px;
 }
 
@@ -58,22 +152,29 @@ input[type = number], h3{
     display: flex;
     
     width: 100%;
-    min-height: 100vh;
-    min-height: webkit-fill-available;
-    min-height: fill-available;
-    
+    height: calc(100% - 7rem);
+
     background-color: #eee;
 
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 2px solid #000;
 
     position: relative;
-
     overflow: hidden;
 }
 
-.bolas{
-    position: absolute;
-    
-    border-radius: 100%;
+/*
+QUANDO FOR A HORA VOCE USA ESSA PORRA PRA ANIMAR O MENU
+
+.hamburger{
+    border-top-color: transparent;
 }
+
+.hamburger::before{
+    transform: rotate(135deg);
+}
+
+.hamburger::after{
+    transform: rotate(-135deg);
+    top: -7rem;
+}
+*/
