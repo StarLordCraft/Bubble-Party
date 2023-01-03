@@ -29,7 +29,7 @@ header{
     align-items: center;
     justify-content: space-between;
 
-    height: 7rem;
+    height: 8rem;
 
     background-color: var(--menu);
 }
@@ -98,7 +98,7 @@ h1{
     height: 0;
 
     position: absolute;
-    top: 7rem;
+    top: 8rem;
     left: 0;
     z-index: 1;
 
@@ -124,7 +124,7 @@ header.active .hamburger::after{
 }
 
 header.active .controles{
-    height: calc(100% - 7rem);
+    height: calc(100% - 8rem);
 
     visibility: visible !important;
     overflow-y: auto !important;
@@ -138,7 +138,7 @@ header.active .controles{
 
     text-align: center;
 
-    min-width: 50%;
+    width: 50%;
     margin: 2rem;
 
     color: #fff;
@@ -174,7 +174,7 @@ input[type = number], h3{
     display: flex;
     
     width: 100%;
-    height: calc(100% - 7rem);
+    height: calc(100% - 8rem);
 
     background-color: #eee;
 
@@ -182,4 +182,35 @@ input[type = number], h3{
 
     position: relative;
     overflow: hidden;
+}
+
+@media (min-width: 768px){
+    header{
+        justify-content: flex-start;
+    }
+    
+    h1{
+        margin:0;
+    }
+
+    .btnMenu{
+        display: none;
+    }
+
+    .controles{
+        height: 8rem;
+        width: calc(100% - 18rem);
+        
+        position: initial;
+
+        flex-direction: row;
+
+        visibility: visible;
+        overflow: hidden;
+    }
+
+    .controle{
+        width: 200rem;
+        height: 8rem;
+    }
 }

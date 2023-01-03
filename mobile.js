@@ -50,3 +50,18 @@ const controles = document.querySelector('.controles');
 
 btnMenu.addEventListener('click', handleButtonClick);
 btnMenu.addEventListener('touchstart', handleButtonClick);
+
+if(window.innerWidth >= 768){
+    btnMenu.removeEventListener('click', handleButtonClick);
+    btnMenu.removeEventListener('touchstart', handleButtonClick);
+}
+
+window.addEventListener('resize', () =>{
+    if(window.innerWidth >= 768){
+        btnMenu.removeEventListener('click', handleButtonClick);
+        btnMenu.removeEventListener('touchstart', handleButtonClick);
+    }else{
+        btnMenu.addEventListener('click', handleButtonClick);
+        btnMenu.addEventListener('touchstart', handleButtonClick);
+    }
+})
