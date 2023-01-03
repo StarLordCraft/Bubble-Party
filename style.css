@@ -110,18 +110,39 @@ h1{
     overflow-y: hidden;
 }
 
+header.active .hamburger{
+    border-top-color: transparent;
+}
+
+header.active .hamburger::before{
+    transform: rotate(135deg);
+}
+
+header.active .hamburger::after{
+    transform: rotate(-135deg);
+    top: -0.5rem;
+}
+
+header.active .controles{
+    height: calc(100% - 7rem);
+
+    visibility: visible !important;
+    overflow-y: auto !important;
+}
+
 .controle{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    text-align: center;
+
     min-width: 50%;
-    margin: 3rem;
+    margin: 2rem;
 
     color: #fff;
     background-color: blueviolet;
-
-    text-align: center;
 }
 
 .controle label{
@@ -146,6 +167,7 @@ input[type = number], h3{
 
     padding: 5px;
     border-radius: 5px;
+    
 }
 
 .palco{
@@ -161,20 +183,3 @@ input[type = number], h3{
     position: relative;
     overflow: hidden;
 }
-
-/*
-QUANDO FOR A HORA VOCE USA ESSA PORRA PRA ANIMAR O MENU
-
-.hamburger{
-    border-top-color: transparent;
-}
-
-.hamburger::before{
-    transform: rotate(135deg);
-}
-
-.hamburger::after{
-    transform: rotate(-135deg);
-    top: -7rem;
-}
-*/
