@@ -44,8 +44,26 @@ export default class Bola{
         this.palco.appendchild(div);
     }
 
-    control(){
+    colision(){
+        if(this.px <= 0)this.dirX = 1;
+        if((this.px + this.tam >= this.palco.offsetWidth))this.dirX = -1;
 
+        if(this.py <= 0)this.dirY = 1;
+        if((this.py + this.tam >= this.palco.offsetHeight))this.dirY = -1;
+    }
+
+    control(){
+        this.colision();
+
+        this.px += this.dirX * this.velX;
+        this.py += this.dirY * this.velY;
+
+        this.connection.setAttribute('style', 
+        `left:${this.px}; 
+        top:${this.py} 
+        `)
+
+        if((this.px > this.palco.offsetWidth) || (this.py > this.palco.offsetHeight))this.delete();
     }
 
     index(){
