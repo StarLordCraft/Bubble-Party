@@ -22,13 +22,12 @@ btnAdicionar.addEventListener('click', () => {
     const bubblesToAdd = addBubble.value;
 
     for(let i = 0; i < bubblesToAdd; ++i){
-        //instanciar novas bolinhas
-
+        bolas.push(new Bola(bolas, palco));
         numObjetos.innerHTML = bolas.length;
     }
 
 })
 
 btnRemover.addEventListener('click', () => {
-    //REMOVER BOLINHAS 
+    bolas.forEach(b => b.delete());
 })

@@ -6,23 +6,28 @@ export default class Bola{
         this.g = Math.round(Math.random() * 255);
         this.b = Math.round(Math.random() * 255);
 
-        this.px = Math.round(Math.random() * (palcoWidth - this.tam));
-        this.py = Math.round(Math.random() * (palcoHeight - this.tam));
+        this.px = Math.round(Math.random() * (palco.offsetWidth - this.tam));
+        this.py = Math.round(Math.random() * (palco.offsetHeight - this.tam));
+        
+        console.log(this.px)
+        console.log(this.py)
 
         this.velX = Math.round((Math.random() * 2) + 0.5);
         this.velY = Math.round((Math.random() * 2) + 0.5);
+
         this.dirX = (Math.round((Math.random() * 10)) > 5)? 1 : -1;
         this.dirY = (Math.round((Math.random() * 10)) > 5)? 1 : -1;
     
         this.palco = palco;
         this.arrayBolas = arrayBolas;
-        this.id = `${Date.now}.${Math.floor(Math.random() * 100000000000000)}`;
+        this.id = `${Date.now()}.${Math.floor(Math.random() * 100000000000000)}`;
     
         this.draw();
 
-        this.controle = requestAnimationFrame(this.control)
-        this.connection = document.getElementById(this.id);
+        this.connection = document.getElementById(`${this.id}`);
         
+        this.controles = setInterval(() => this.control(), 1)
+
         this.arrayUpdate = () => {
             arrayBolas = this.arrayBolas;
         }
@@ -32,16 +37,16 @@ export default class Bola{
         const div = document.createElement('div');
         div.setAttribute('id', this.id);
         
-        div.setAttribute('class', 'bola');
+        div.setAttribute('class', 'bubble');
 
         div.setAttribute('style', 
-        `left:${this.px}; 
-        top:${this.py} 
-        width:${this.tam}; 
-        height:${this.tam} 
+        `left:${this.px}px; 
+        top:${this.py}px; 
+        width:${this.tam}px; 
+        height:${this.tam}px; 
         background-color:rgb(${this.r}, ${this.g}, ${this.b})`)
-    
-        this.palco.appendchild(div);
+
+        this.palco.appendChild(div);
     }
 
     colision(){
@@ -54,14 +59,18 @@ export default class Bola{
 
     control(){
         this.colision();
-
+        
         this.px += this.dirX * this.velX;
         this.py += this.dirY * this.velY;
 
         this.connection.setAttribute('style', 
-        `left:${this.px}; 
-        top:${this.py} 
-        `)
+        `left:${this.px}px; 
+        top:${this.py}px; 
+        width:${this.tam}px; 
+        height:${this.tam}px; 
+        background-color:rgb(${this.r}, ${this.g}, ${this.b})`)
+
+        console.log(this.px)
 
         if((this.px > this.palco.offsetWidth) || (this.py > this.palco.offsetHeight))this.delete();
     }
