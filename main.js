@@ -15,7 +15,7 @@ window.addEventListener('resize', () => {
     palcoWidth = palco.offsetWidth;
     palcoHeight = palco.offsetHeight;
 
-    numObjetos.innerHTML = bolas.length;
+    numObjetos.innerHTML = palco.childNodes.length;
 })
 
 btnAdicionar.addEventListener('click', () => {
@@ -30,4 +30,6 @@ btnAdicionar.addEventListener('click', () => {
 
 btnRemover.addEventListener('click', () => {
     bolas.forEach(b => b.delete());
+    bolas = [];
+    numObjetos.innerHTML = bolas.length;
 })

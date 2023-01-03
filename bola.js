@@ -8,13 +8,9 @@ export default class Bola{
 
         this.px = Math.round(Math.random() * (palco.offsetWidth - this.tam));
         this.py = Math.round(Math.random() * (palco.offsetHeight - this.tam));
-        
-        console.log(this.px)
-        console.log(this.py)
 
         this.velX = Math.round((Math.random() * 2) + 0.5);
         this.velY = Math.round((Math.random() * 2) + 0.5);
-
         this.dirX = (Math.round((Math.random() * 10)) > 5)? 1 : -1;
         this.dirY = (Math.round((Math.random() * 10)) > 5)? 1 : -1;
     
@@ -27,10 +23,6 @@ export default class Bola{
         this.connection = document.getElementById(`${this.id}`);
         
         this.controles = setInterval(() => this.control(), 1)
-
-        this.arrayUpdate = () => {
-            arrayBolas = this.arrayBolas;
-        }
     }
 
     draw(){
@@ -70,8 +62,6 @@ export default class Bola{
         height:${this.tam}px; 
         background-color:rgb(${this.r}, ${this.g}, ${this.b})`)
 
-        console.log(this.px)
-
         if((this.px > this.palco.offsetWidth) || (this.py > this.palco.offsetHeight))this.delete();
     }
 
@@ -88,8 +78,6 @@ export default class Bola{
                 return b;
             }
         })
-        
-        this.arrayUpdate();
 
         this.connection.remove();
     }
