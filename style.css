@@ -184,6 +184,12 @@ input[type = number], h3{
     overflow: hidden;
 }
 
+.bubble{
+    position: absolute;
+
+    border-radius: 100%;
+}
+
 @media (min-width: 768px){
     header{
         justify-content: flex-start;
