@@ -65,12 +65,7 @@ export default class Bola{
         if((this.px > this.palco.offsetWidth) || (this.py > this.palco.offsetHeight))this.delete();
     }
 
-    index(){
-        return this.arrayBolas.indexOf(this);
-    }
-
     delete(){
-        //TESTE NECESSÁRIO, TALVEZ O ARRAYUPDATE NAO FUNCIONE CORRETAMENTE.
         clearInterval(this.controle);
 
         this.arrayBolas = this.arrayBolas.filter((b) => {
